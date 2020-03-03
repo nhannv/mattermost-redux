@@ -23,6 +23,7 @@ import {Config} from 'types/config';
 import {Bot, BotPatch} from 'types/bots';
 import {Dictionary} from 'types/utilities';
 import {SyncablePatch} from 'types/groups';
+import {Branch} from 'types/branches';
 
 const FormData = require('form-data');
 const HEADER_AUTH = 'Authorization';
@@ -157,6 +158,20 @@ export default class Client4 {
     getTeamMemberRoute(teamId: string, userId: string) {
         return `${this.getTeamMembersRoute(teamId)}/${userId}`;
     }
+
+    // Branch route
+    getBranchesRoute() {
+        return `${this.getBaseRoute()}/branches`;
+    }
+
+    getBranchRoute(branchId: string) {
+        return `${this.getBranchesRoute()}/${branchId}`;
+    }
+
+    getBranchClassesRoute(branchId: string) {
+        return `${this.getBranchRoute(branchId)}/classes`;
+    }
+    // End branch route
 
     getChannelsRoute() {
         return `${this.getBaseRoute()}/channels`;
@@ -3118,6 +3133,76 @@ export default class Client4 {
             }, {properties}, options));
         }
     }
+
+    
+    // Branch Routes
+
+    createBranch = async (branch: Branch) => {
+        this.trackEvent('api', 'api_branches_create');
+
+        return this.doFetch(
+            `${this.getBranchesRoute()}`,
+            {method: 'post', body: JSON.stringify(branch)}
+        );
+    };
+
+    deleteBranch = async (branchId: string) => {
+        this.trackEvent('api', 'api_branches_delete');
+
+        return this.doFetch(
+            `${this.getBranchRoute(branchId)}`,
+            {method: 'delete'}
+        );
+    };
+
+    updateBranch = async (branch: Branch) => {
+        this.trackEvent('api', 'api_branches_update_name', {branch_id: branch.id});
+
+        return this.doFetch(
+            `${this.getBranchRoute(branch.id)}`,
+            {method: 'put', body: JSON.stringify(branch)}
+        );
+    };
+
+    patchBranch = async (branch: Partial<Branch> & {id: string}) => {
+        this.trackEvent('api', 'api_branches_patch_name', {branch_id: branch.id});
+
+        return this.doFetch(
+            `${this.getBranchRoute(branch.id)}/patch`,
+            {method: 'put', body: JSON.stringify(branch)}
+        );
+    };
+
+    getBranches = async (page = 0, perPage = PER_PAGE_DEFAULT, includeTotalCount = false) => {
+        return this.doFetch(
+            `${this.getBranchesRoute()}${buildQueryString({page, per_page: perPage, include_total_count: includeTotalCount})}`,
+            {method: 'get'}
+        );
+    };
+
+    searchBranches = (term: string, page?: number, perPage?: number) => {
+        this.trackEvent('api', 'api_search_branches');
+
+        return this.doFetch(
+            `${this.getBranchesRoute()}/search`,
+            {method: 'post', body: JSON.stringify({term, page, per_page: perPage})}
+        );
+    };
+
+    getBranch = async (branchId: string) => {
+        return this.doFetch(
+            this.getBranchRoute(branchId),
+            {method: 'get'}
+        );
+    };
+
+    getBranchStats = async (branchId: string) => {
+        return this.doFetch(
+            `${this.getBranchRoute(branchId)}/stats`,
+            {method: 'get'}
+        );
+    };
+
 }
 
 function parseAndMergeNestedHeaders(originalHeaders: any) {

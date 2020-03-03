@@ -14,7 +14,7 @@ const inputs = ['client4', 'websocket_client'];
 // eslint-disable-next-line no-process-env
 const buildFolder = process.env.OUTPUT_FOLDER || '.';
 
-module.exports = inputs.map((input) => ({
+export default inputs.map((input) => ({
     input: `./src/client/${input}.ts`,
     treeshake: Boolean(production),
     output: [

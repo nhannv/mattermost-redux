@@ -23,6 +23,7 @@ import * as teams from './teams';
 import * as timezone from './timezone';
 import * as typing from './typing';
 import * as users from './users';
+import * as branches from './branches';
 
 export {
     admin,
@@ -47,4 +48,5 @@ export {
     timezone,
     typing,
     users,
+    branches,
 };

@@ -38,4 +38,4 @@ config.env = {
 };
 config.env.test.presets[0][1].modules = 'auto';
 
-module.exports = config;
+export default config;

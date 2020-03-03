@@ -36,6 +36,12 @@ const state: GlobalState = {
             groupsAssociatedToTeam: {},
             totalCount: 0,
         },
+        branches: {
+            currentBranchId: '',
+            branches: {},
+            stats: {},
+            totalCount: 0,
+        },
         channels: {
             currentChannelId: '',
             channels: {},
@@ -182,6 +188,12 @@ const state: GlobalState = {
                 error: null,
             },
             getPostThread: {
+                status: 'not_started',
+                error: null,
+            },
+        },
+        branches: {
+            getBranches: {
                 status: 'not_started',
                 error: null,
             },

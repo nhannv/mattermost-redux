@@ -31,6 +31,10 @@ export type TeamsRequestsStatuses = {
     joinTeam: RequestStatusType;
 };
 
+export type BranchesRequestsStatuses = {
+    getBranches: RequestStatusType;
+};
+
 export type UsersRequestsStatuses = {
     checkMfa: RequestStatusType;
     login: RequestStatusType;

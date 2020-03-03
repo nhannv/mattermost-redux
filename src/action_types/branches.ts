@@ -1,0 +1,50 @@
+// Copyright (c) 2015-present Mattermost, Inc. All Rights Reserved.
+// See LICENSE.txt for license information.
+
+import keyMirror from 'utils/key_mirror';
+
+export default keyMirror({
+    GET_BRANCHES_REQUEST: null,
+    GET_BRANCHES_SUCCESS: null,
+    GET_BRANCHES_FAILURE: null,
+
+    MY_BRANCHES_REQUEST: null,
+    MY_BRANCHES_SUCCESS: null,
+    MY_BRANCHES_FAILURE: null,
+
+    CREATE_BRANCH_REQUEST: null,
+    CREATE_BRANCH_SUCCESS: null,
+    CREATE_BRANCH_FAILURE: null,
+
+    GET_BRANCH_CLASSES_REQUEST: null,
+    GET_BRANCH_CLASSES_SUCCESS: null,
+    GET_BRANCH_CLASSES_FAILURE: null,
+
+    GET_BRANCH_KIDS_REQUEST: null,
+    GET_BRANCH_KIDS_SUCCESS: null,
+    GET_BRANCH_KIDS_FAILURE: null,
+
+    JOIN_BRANCH_REQUEST: null,
+    JOIN_BRANCH_SUCCESS: null,
+    JOIN_BRANCH_FAILURE: null,
+
+    CREATED_BRANCH: null,
+    SELECT_BRANCH: null,
+    UPDATED_BRANCH: null,
+    PATCHED_BRANCH: null,
+    RECEIVED_BRANCH: null,
+    RECEIVED_BRANCHES: null,
+    RECEIVED_BRANCH_DELETED: null,
+    RECEIVED_BRANCHES_LIST: null,
+    RECEIVED_MY_BRANCH_MEMBERS: null,
+    RECEIVED_MY_BRANCH_MEMBER: null,
+    RECEIVED_BRANCH_MEMBERS: null,
+    RECEIVED_CLASSES_IN_BRANCH: null,
+    RECEIVED_CLASS_IN_BRANCH: null,
+    REMOVE_CLASS_FROM_BRANCH: null,
+    RECEIVED_BRANCH_STATS: null,
+    UPDATED_BRANCH_SCHEME: null,
+    UPDATED_BRANCH_MEMBER_SCHEME_ROLES: null,
+
+    RECEIVED_TOTAL_BRANCH_COUNT: null,
+});

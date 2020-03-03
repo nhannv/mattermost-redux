@@ -20,6 +20,7 @@ import SchemeTypes from './schemes';
 import GroupTypes from './groups';
 import BotTypes from './bots';
 import PluginTypes from './plugins';
+import BranchTypes from './branches';
 
 export {
     ErrorTypes,
@@ -42,4 +43,5 @@ export {
     GroupTypes,
     BotTypes,
     PluginTypes,
+    BranchTypes
 };

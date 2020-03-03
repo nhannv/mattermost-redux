@@ -23,6 +23,7 @@ import * as teams from './teams';
 import * as timezone from './timezone';
 import * as websocket from './websocket';
 import * as users from './users';
+import * as branches from './branches';
 
 export {
     admin,
@@ -47,5 +48,6 @@ export {
     timezone,
     websocket,
     users,
+    branches,
 };
 

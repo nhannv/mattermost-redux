@@ -13,6 +13,7 @@ import admin from './admin';
 import jobs from './jobs';
 import search from './search';
 import roles from './roles';
+import branches from './branches';
 
 export default combineReducers({
     channels,
@@ -25,4 +26,5 @@ export default combineReducers({
     jobs,
     search,
     roles,
+    branches,
 });

@@ -15,17 +15,19 @@ import {EmojisState} from './emojis';
 import {SchemesState} from './schemes';
 import {Typing} from './typing';
 import {GroupsState} from './groups';
-import {ChannelsRequestsStatuses, GeneralRequestsStatuses, PostsRequestsStatuses, TeamsRequestsStatuses, UsersRequestsStatuses, AdminRequestsStatuses, FilesRequestsStatuses, RolesRequestsStatuses, JobsRequestsStatuses} from './requests';
+import {ChannelsRequestsStatuses, GeneralRequestsStatuses, PostsRequestsStatuses, TeamsRequestsStatuses, UsersRequestsStatuses, AdminRequestsStatuses, FilesRequestsStatuses, RolesRequestsStatuses, JobsRequestsStatuses, BranchesRequestsStatuses} from './requests';
 import {Role} from './roles';
 import {PreferenceType} from './preferences';
 import {Bot} from './bots';
 import {Dictionary} from './utilities';
+import {BranchesState} from './branches';
 
 export type GlobalState = {
     entities: {
         general: GeneralState;
         users: UsersState;
         teams: TeamsState;
+        branches: BranchesState;
         channels: ChannelsState;
         posts: PostsState;
         bots: {
@@ -62,6 +64,7 @@ export type GlobalState = {
         general: GeneralRequestsStatuses;
         posts: PostsRequestsStatuses;
         teams: TeamsRequestsStatuses;
+        branches: BranchesRequestsStatuses;
         users: UsersRequestsStatuses;
         admin: AdminRequestsStatuses;
         files: FilesRequestsStatuses;
